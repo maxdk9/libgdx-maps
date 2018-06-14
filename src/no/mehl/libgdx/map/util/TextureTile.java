@@ -19,6 +19,8 @@ import java.lang.ref.SoftReference;
  */
 public class TextureTile {
 
+
+
     public enum Priority
     {
         High, Low
@@ -39,6 +41,11 @@ public class TextureTile {
 	 * The url of the image to load for this tile
 	 */
 	private String url;
+
+	/*
+	* Path to the file
+	 */
+	private String path;
 
 	/**
 	 * Indicates that loading has succeeded. A PropertyChangeEvent will be fired when the loading is completed
@@ -81,6 +88,7 @@ public class TextureTile {
     public TextureTile(int x, int y, int zoom, String url, Priority priority, MapManager dtf)
 	{
 		this.url = url;
+        SetPathFromUrl(dtf);
         loaded = false;
 		this.zoom = zoom;
 		this.x = x;
@@ -89,6 +97,12 @@ public class TextureTile {
 		this.dtf = dtf;
 		// startLoading();
 	}
+
+    private void SetPathFromUrl(MapManager dtf) {
+        String url = dtf.GetBaseUrl();
+        String tekpath = this.url.replace(url, "");
+        this.path=tekpath;
+    }
 
     public void setReference(SoftReference<Texture> ref) {
         this.image = ref;
@@ -190,5 +204,15 @@ public class TextureTile {
 	{
 		return y;
 	}
+
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
 
 }

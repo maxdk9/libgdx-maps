@@ -9,8 +9,8 @@ public class MapTest  {
 
 		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
 		cfg.title = "uniquegameidentifaction";
-		cfg.width = 568;
-		cfg.height = 1080;
+		cfg.width = 800;
+		cfg.height = 480;
 
 
 		new LwjglApplication(new MapView(), cfg);

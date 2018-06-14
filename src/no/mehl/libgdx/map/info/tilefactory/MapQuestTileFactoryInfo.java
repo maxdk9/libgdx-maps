@@ -10,11 +10,17 @@ public class MapQuestTileFactoryInfo extends AbstractTileInfo {
 
     private static final int max = 18;
 
+    static  String oldurl="http://otile1.mqcdn.com/tiles/1.0.0/map";
+    static String newurl="https://tile.openstreetmap.org";
+
+
+
     public MapQuestTileFactoryInfo() {
         super("MapQuest",
                 1, max, max,
                 256, true, true, 					// tile size is 256 and x/y orientation is normal
-                "http://otile1.mqcdn.com/tiles/1.0.0/map",
+                newurl
+                ,
                 "x", "y", "z");						// 5/15/10.png
     }
 

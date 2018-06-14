@@ -239,7 +239,8 @@ public class MapManager {
 		try {
 			Pixmap pixmap = new Pixmap(content, 0, content.length);
 			Texture texture = new Texture(pixmap);
-            cache.put(tile.getURL(), content);
+            //cache.put(tile.getURL(), content);
+            cache.put(tile.getPath(), content);
 			tile.setReference(new SoftReference<Texture>(texture));
 			tile.setLoaded(true);
 		} catch(Exception e) {
@@ -351,4 +352,9 @@ public class MapManager {
 	public TextureRegion getMapTexture() {
 		return mapRegion;
 	}
+
+
+    public String GetBaseUrl() {
+	    return this.info.getBaseURL();
+    }
 }
